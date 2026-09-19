@@ -67,8 +67,8 @@ Everything below is placeholder content for a business that does not exist.
 
 | What | Where |
 |---|---|
-| Name, address, phone, email | `index.html` - search `Koregaon Park`, `98765 43210`, `foodiecafe.example` |
-| Map location | `index.html` - the `<iframe>` in the Visit section |
+| Name, address, phone, email | `index.html` - search `Example Plaza`, `XXXXX XXXXX`, `foodiecafe.example` |
+| Map location | `index.html` - swap the `.map--placeholder` block in Visit for your own embed |
 | Menu items and prices | `index.html` - the 24 `<article class="dish">` blocks |
 | Dish detail copy, calories, allergens | `js/main.js` - the `DISH_INFO` map, keyed by image slug |
 | Offers and pricing | `index.html` - the three `<article class="offer">` blocks |
