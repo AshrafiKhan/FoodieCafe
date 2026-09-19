@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodieCafe - Multi-Cuisine Food Court in Pune</title>
+<meta name="description" content="FoodieCafe is a bright multi-cuisine food court serving Indian, Chinese, Italian, burgers, desserts and drinks. Fresh every day, served in under 15 minutes.">
+<meta name="theme-color" content="#FF3B30">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="FoodieCafe - Multi-Cuisine Food Court">
+<meta property="og:description" content="Six kitchens, one counter. Indian, Chinese, Italian, burgers, desserts and drinks, served in under 15 minutes.">
+<meta property="og:image" content="assets/img/hero-pizza.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23FF3B30'/><text y='72' x='50' text-anchor='middle' font-size='62'>&#127859;</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+
+<script>
+/* Arm the animation start-states before first paint so nothing flashes.
+   If GSAP never loads, the timeout disarms them and the page shows normally. */
+(function () {
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var h = document.documentElement;
+    h.classList.add('js-anim');
+    window.__animFallback = setTimeout(function () { h.classList.remove('js-anim'); }, 3500);
+  } catch (e) { /* no matchMedia: leave the page static */ }
+})();
+</script>
+</head>
+
+<body>
+<a class="skip" href="#menu">Skip to the menu</a>
+
+<!-- preloader -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__word" id="preWord"></div>
+  <div class="preloader__bar" id="preBar"></div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<!-- ============ header ============ -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a class="logo" href="#top" data-magnetic>
+      <span class="logo__mark" aria-hidden="true">&#127859;</span>
+      <span>Foodie<em>Cafe</em></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#offers">Offers</a></li>
+        <li><a class="nav__link" href="#about">Why us</a></li>
+        <li><a class="nav__link" href="#menu">Menu</a></li>
+        <li><a class="nav__link" href="#gallery">Gallery</a></li>
+        <li><a class="nav__link" href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__cta">
+      <a class="btn btn--sm" href="#visit" data-magnetic>Book a table</a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div>
+    <ul class="drawer__list">
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#about">Why us</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <p class="drawer__meta">Open daily 11:00 AM - 11:30 PM<br>+91 98765 43210</p>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============ 1. hero ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <span class="hero__blob hero__blob--1" data-float="26"></span>
+      <span class="hero__blob hero__blob--2" data-float="-20"></span>
+      <span class="hero__grid"></span>
+    </div>
+
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Six kitchens, one counter</span>
+
+        <h1 class="hero__title" id="heroTitle">
+          <span class="line" data-line="Big flavours,"></span>
+          <span class="line" data-line="small queue."></span>
+          <span class="line accent" data-line="Every day."></span>
+        </h1>
+
+        <p class="lead">
+          Indian, Chinese, Italian, burgers, desserts and drinks under one roof at
+          FoodieCafe. Cooked fresh to order, on your tray in under 15 minutes.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn" href="#menu" data-magnetic>
+            <span class="btn__ico" aria-hidden="true">&#127858;</span> See the menu
+          </a>
+          <a class="btn btn--ghost" href="#visit" data-magnetic>
+            <span class="btn__ico" aria-hidden="true">&#128205;</span> Find us
+          </a>
+        </div>
+
+        <div class="hero__proof">
+          <div class="avatars" aria-hidden="true">
+            <img src="assets/img/gallery-2.jpg" alt="" width="44" height="44">
+            <img src="assets/img/gallery-8.jpg" alt="" width="44" height="44">
+            <img src="assets/img/gallery-6.jpg" alt="" width="44" height="44">
+          </div>
+          <div>
+            <b><span class="stars" aria-hidden="true">&starf;&starf;&starf;&starf;&starf;</span> 4.8 out of 5</b>
+            <small>from 2,400+ diners this year</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="collage" aria-hidden="false">
+        <div class="collage__badge" data-float="14">
+          <b>15 min</b>
+          or it is free
+        </div>
+
+        <figure class="collage__item collage__item--a" data-depth="0.16">
+          <img src="assets/img/hero-pizza.jpg" alt="A whole margherita pizza with fresh basil leaves" width="700" height="700" fetchpriority="high">
+        </figure>
+        <figure class="collage__item collage__item--b" data-depth="-0.24">
+          <img src="assets/img/hero-burger.jpg" alt="A cheeseburger with lettuce and melted cheese" width="500" height="500">
+        </figure>
+        <figure class="collage__item collage__item--c" data-depth="0.3">
+          <img src="assets/img/hero-noodles.jpg" alt="Stir-fried hakka noodles served with chopsticks" width="500" height="375">
+        </figure>
+        <figure class="collage__item collage__item--d" data-depth="-0.14">
+          <img src="assets/img/hero-shake.jpg" alt="A strawberry milkshake topped with fresh strawberries" width="400" height="533">
+        </figure>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span class="scroll-cue__rail"></span>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ticker -->
+  <div class="marquee" id="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Butter Chicken</span><i>&#9679;</i>
+      <span>Hakka Noodles</span><i>&#9679;</i>
+      <span>Wood-Fired Pizza</span><i>&#9679;</i>
+      <span>Double Patty Melt</span><i>&#9679;</i>
+      <span>Filter Coffee</span><i>&#9679;</i>
+      <span>Gulab Jamun</span><i>&#9679;</i>
+    </div>
+    <div class="marquee__track">
+      <span>Butter Chicken</span><i>&#9679;</i>
+      <span>Hakka Noodles</span><i>&#9679;</i>
+      <span>Wood-Fired Pizza</span><i>&#9679;</i>
+      <span>Double Patty Melt</span><i>&#9679;</i>
+      <span>Filter Coffee</span><i>&#9679;</i>
+      <span>Gulab Jamun</span><i>&#9679;</i>
+    </div>
+  </div>
+
+  <!-- ============ 2. offers ============ -->
+  <section class="section section--alt" id="offers">
+    <div class="wrap">
+      <div class="offers__top">
+        <div class="head reveal" style="margin-bottom:0">
+          <span class="eyebrow">Happy hour</span>
+          <h2>Deals that <span class="underline-pop">disappear</span> at 7</h2>
+          <p class="lead">Every weekday from 4:00 PM to 7:00 PM, combo boxes drop to their
+            lowest price of the day. The counter clock is ticking.</p>
+        </div>
+
+        <div class="countdown reveal" role="timer" aria-live="off" aria-label="Time left in today's happy hour">
+          <div class="count-box"><b id="cdH">00</b><small>Hours</small></div>
+          <span class="count-sep" aria-hidden="true">:</span>
+          <div class="count-box"><b id="cdM">00</b><small>Mins</small></div>
+          <span class="count-sep" aria-hidden="true">:</span>
+          <div class="count-box"><b id="cdS">00</b><small>Secs</small></div>
+        </div>
+      </div>
+
+      <p class="sr-only" id="cdLabel" aria-live="polite"></p>
+
+      <div class="offer-grid reveal-stag">
+        <article class="offer">
+          <span class="offer__save">Save 30%</span>
+          <div class="offer__media">
+            <img src="assets/img/offer-burger-combo.jpg" alt="Two loaded burgers served with chilled bottled drinks" width="900" height="563" loading="lazy">
+          </div>
+          <div class="offer__body">
+            <span class="tag">For two</span>
+            <h3>Burger Buddy Box</h3>
+            <p>Two signature burgers, one basket of cheese fries and two chilled drinks.</p>
+            <div class="offer__price"><b>&#8377;499</b> <s>&#8377;710</s></div>
+            <div class="offer__foot"><a class="btn btn--sm btn--yellow" href="#visit">Grab this</a></div>
+          </div>
+        </article>
+
+        <article class="offer">
+          <span class="offer__save">Save 25%</span>
+          <div class="offer__media">
+            <img src="assets/img/offer-snack-box.jpg" alt="A burger served in a basket with a side of fries" width="900" height="563" loading="lazy">
+          </div>
+          <div class="offer__body">
+            <span class="tag">Solo</span>
+            <h3>Desk Lunch Box</h3>
+            <p>Any one main, a side of your choice and a cold brew. Packed to go in five minutes.</p>
+            <div class="offer__price"><b>&#8377;299</b> <s>&#8377;399</s></div>
+            <div class="offer__foot"><a class="btn btn--sm btn--yellow" href="#visit">Grab this</a></div>
+          </div>
+        </article>
+
+        <article class="offer">
+          <span class="offer__save">Save 35%</span>
+          <div class="offer__media">
+            <img src="assets/img/offer-family-feast.jpg" alt="An overhead spread of shared Indian dishes, breads and chutneys" width="900" height="563" loading="lazy">
+          </div>
+          <div class="offer__body">
+            <span class="tag">For four</span>
+            <h3>Family Feast Thali</h3>
+            <p>Four mains, breads, rice, two desserts and a jug of fresh lime soda.</p>
+            <div class="offer__price"><b>&#8377;1,199</b> <s>&#8377;1,840</s></div>
+            <div class="offer__foot"><a class="btn btn--sm btn--yellow" href="#visit">Grab this</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. about / why us ============ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about">
+        <div class="about__media reveal">
+          <img src="assets/img/about-counter.jpg" alt="The FoodieCafe service counter with warm lighting and bar seating" width="1100" height="936" loading="lazy">
+          <div class="about__sticker" data-float="10">
+            <span><b>2014</b> serving since</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="head reveal" style="margin-bottom:0">
+            <span class="eyebrow">Why FoodieCafe</span>
+            <h2>One counter, <span class="underline-pop">six kitchens</span></h2>
+            <p class="lead">
+              We started as a single dosa cart and grew into a food court where six
+              kitchens share one billing counter. You order once, and everything lands
+              on the same tray at the same time. No arguing about cuisine.
+            </p>
+          </div>
+
+          <div class="features reveal-stag">
+            <div class="feature">
+              <div class="feature__ico" aria-hidden="true">&#129387;</div>
+              <h3>Bought fresh daily</h3>
+              <p>Produce from the Mandai market every morning at 6, nothing held overnight.</p>
+            </div>
+            <div class="feature">
+              <div class="feature__ico" aria-hidden="true">&#9200;</div>
+              <h3>Under 15 minutes</h3>
+              <p>Tray on your table inside 15 minutes, or the meal is on the house.</p>
+            </div>
+            <div class="feature">
+              <div class="feature__ico" aria-hidden="true">&#127793;</div>
+              <h3>Separate veg line</h3>
+              <p>Dedicated veg kitchen with its own oil, pans and prep boards. Never shared.</p>
+            </div>
+            <div class="feature">
+              <div class="feature__ico" aria-hidden="true">&#129530;</div>
+              <h3>Open kitchen</h3>
+              <p>Every station is behind glass. Watch your food get cooked while you wait.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats reveal-stag">
+        <div class="stat"><b data-count="6" data-suffix="">6</b><span>Cuisines</span></div>
+        <div class="stat"><b data-count="120" data-suffix="+">120+</b><span>Dishes daily</span></div>
+        <div class="stat"><b data-count="15" data-suffix=" min">15 min</b><span>Serve promise</span></div>
+        <div class="stat"><b data-count="11" data-suffix=" yrs">11 yrs</b><span>Feeding Pune</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. menu ============ -->
+  <section class="section section--alt" id="menu">
+    <div class="wrap">
+      <div class="head head--center reveal">
+        <span class="eyebrow">The menu</span>
+        <h2>Pick a kitchen, <span class="underline-pop">any kitchen</span></h2>
+        <p class="lead" style="margin-inline:auto">
+          Twenty-four regulars, priced honestly, with the veg counter listed first.
+          Tap a cuisine to filter both.
+        </p>
+      </div>
+
+      <div class="menu__bar reveal" role="tablist" aria-label="Filter the menu by cuisine">
+        <button class="chip" role="tab" aria-selected="true"  data-filter="all">All</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="indian">Indian</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="chinese">Chinese</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="italian">Italian</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="burgers">Burgers &amp; grills</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="desserts">Desserts</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="drinks">Drinks</button>
+      </div>
+
+      <div id="menuGroups">
+      <div class="menu-group" data-group="veg">
+        <h3 class="menu-group__head">
+          <span class="diet" aria-hidden="true"></span>
+          <span>Pure Veg</span>
+          <span class="menu-group__count">17 dishes</span>
+        </h3>
+        <p class="menu-group__note">Cooked in the separate veg kitchen, with its own oil, pans and prep boards.</p>
+
+        <div class="menu-grid">
+          <!-- Indian -->
+          <article class="dish" data-cat="indian" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-samosa.jpg" alt="Golden fried samosas with green chillies" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Punjabi Samosa</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Two hand-folded samosas, potato and pea filling, with tamarind and mint chutney.</p>
+              <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;80</span><button class="dish__add" aria-label="Add Punjabi Samosa to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="indian" data-diet="veg">
+            <div class="dish__media">
+              <span class="dish__flag">Value</span>
+              <img src="assets/img/dish-veg-thali.jpg" alt="A steel thali with curries, rice, papad and pickle" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Deluxe Veg Thali</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Two curries, dal, rice, four rotis, papad, salad and a sweet. Unlimited refills on dal.</p>
+              <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;260</span><button class="dish__add" aria-label="Add Deluxe Veg Thali to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Chinese -->
+          <article class="dish" data-cat="chinese" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-hakka-noodles.jpg" alt="Stir-fried hakka noodles on a wooden board with chopsticks" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Veg Hakka Noodles</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Wok-tossed noodles with julienned cabbage, carrot and spring onion. High flame, proper char.</p>
+              <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;210</span><button class="dish__add" aria-label="Add Veg Hakka Noodles to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="chinese" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-asian-salad.jpg" alt="A colourful chopped Asian salad in a dark bowl" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Asian Chopped Salad</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Shredded cabbage, peanut, sesame and a ginger-soy dressing. Crunchy and cold.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;190</span><button class="dish__add" aria-label="Add Asian Chopped Salad to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Italian -->
+          <article class="dish" data-cat="italian" data-diet="veg">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--hot">Bestseller</span>
+              <img src="assets/img/dish-margherita.jpg" alt="A whole margherita pizza with basil on a dark surface" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Margherita Pizza</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">San Marzano base, fior di latte and basil on a 48-hour cold-proved crust.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;290</span><button class="dish__add" aria-label="Add Margherita Pizza to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="italian" data-diet="veg">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--new">New</span>
+              <img src="assets/img/dish-ricotta-pizza.jpg" alt="Pizza topped with ricotta dollops and fresh rocket leaves" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Ricotta &amp; Rocket</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">White base, whipped ricotta, rocket, lemon zest and a crack of black pepper.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;360</span><button class="dish__add" aria-label="Add Ricotta and Rocket pizza to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="italian" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-penne.jpg" alt="Penne pasta in a red arrabbiata sauce on a white plate" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Penne Arrabbiata</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Slow tomato sauce, garlic and dried chilli. Finished with parmesan and parsley.</p>
+              <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;280</span><button class="dish__add" aria-label="Add Penne Arrabbiata to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="italian" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-pesto-farfalle.jpg" alt="Farfalle pasta in basil pesto with cherry tomatoes" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Pesto Farfalle</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Bow-tie pasta in basil and pine nut pesto, blistered cherry tomatoes on top.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;300</span><button class="dish__add" aria-label="Add Pesto Farfalle to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Burgers & grills -->
+          <article class="dish" data-cat="burgers" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-cheese-fries.jpg" alt="A basket of fries loaded with melted cheese and herbs" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Loaded Cheese Fries</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Skin-on fries under a cheese sauce blanket, jalapeno and spring onion.</p>
+              <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;180</span><button class="dish__add" aria-label="Add Loaded Cheese Fries to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Desserts -->
+          <article class="dish" data-cat="desserts" data-diet="veg">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--hot">Bestseller</span>
+              <img src="assets/img/dish-brownie.jpg" alt="A thick slice of dark chocolate brownie cake" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Molten Brownie</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Warm 70% chocolate brownie with a soft centre and a scoop of vanilla.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;190</span><button class="dish__add" aria-label="Add Molten Brownie to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="desserts" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-raspberry-cake.jpg" alt="A slice of layered cream cake topped with raspberries" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Raspberry Cream Cake</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Three sponge layers, vanilla cream and fresh raspberries. Cut to order.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;220</span><button class="dish__add" aria-label="Add Raspberry Cream Cake to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="desserts" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-donuts.jpg" alt="A stack of glazed donuts with colourful sprinkles" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Sprinkle Donut Stack</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Three glazed donuts, chocolate drizzle and rainbow sprinkles. Made every morning.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;150</span><button class="dish__add" aria-label="Add Sprinkle Donut Stack to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="desserts" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-sundae.jpg" alt="Ice cream with caramel sauce being poured over it" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Salted Caramel Sundae</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Vanilla bean ice cream, warm salted caramel, toasted almond and a wafer roll.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;170</span><button class="dish__add" aria-label="Add Salted Caramel Sundae to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Drinks -->
+          <article class="dish" data-cat="drinks" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-cold-brew.jpg" alt="Iced cold brew coffee in a tall glass" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Cold Brew Coffee</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Steeped 18 hours, poured over a single large cube. Low acid, high kick.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;160</span><button class="dish__add" aria-label="Add Cold Brew Coffee to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="drinks" data-diet="veg">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--new">New</span>
+              <img src="assets/img/dish-oreo-shake.jpg" alt="A thick chocolate cookie shake topped with whipped cream" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Cookie Thick Shake</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Blended cookies and cream, whipped top, chocolate collar on the glass.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;200</span><button class="dish__add" aria-label="Add Cookie Thick Shake to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="drinks" data-diet="veg">
+            <div class="dish__media">
+              <img src="assets/img/dish-mojito.jpg" alt="Tall glasses of iced strawberry mojito with mint" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Strawberry Mojito</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Muddled strawberry, lime and mint topped with soda. Zero alcohol, all fizz.</p>
+              <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;180</span><button class="dish__add" aria-label="Add Strawberry Mojito to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="drinks" data-diet="veg">
+            <div class="dish__media">
+              <span class="dish__flag">Cheapest</span>
+              <img src="assets/img/dish-masala-chai.jpg" alt="A cup of milky masala chai served with biscuits" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Kadak Masala Chai</h4><span class="diet" title="Vegetarian"></span></div>
+              <p class="dish__desc">Boiled strong with ginger, cardamom and clove. Served with two butter biscuits.</p>
+              <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;60</span><button class="dish__add" aria-label="Add Kadak Masala Chai to tray">+</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="menu-group" data-group="non">
+        <h3 class="menu-group__head">
+          <span class="diet diet--non" aria-hidden="true"></span>
+          <span>Non-Veg</span>
+          <span class="menu-group__count">7 dishes</span>
+        </h3>
+        <p class="menu-group__note">Halal certified. Prepared on a dedicated line, never on the veg boards.</p>
+
+        <div class="menu-grid">
+          <!-- Indian -->
+          <article class="dish" data-cat="indian" data-diet="non">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--hot">Bestseller</span>
+              <img src="assets/img/dish-butter-chicken.jpg" alt="Butter chicken in a copper bowl served with hot naan" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Butter Chicken</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Tandoori chicken simmered in tomato, cashew and cream. Served with two butter naan.</p>
+              <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;340</span><button class="dish__add" aria-label="Add Butter Chicken to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="indian" data-diet="non">
+            <div class="dish__media">
+              <img src="assets/img/dish-biryani.jpg" alt="Chicken biryani with long grain rice, herbs and lemon" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Hyderabadi Biryani</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Long grain rice dum-cooked with marinated chicken, saffron and fried onion. Raita on the side.</p>
+              <span class="spice" aria-label="Spice level 3 of 4"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;320</span><button class="dish__add" aria-label="Add Hyderabadi Biryani to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Chinese -->
+          <article class="dish" data-cat="chinese" data-diet="non">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--hot">Chef pick</span>
+              <img src="assets/img/dish-prawn-noodles.jpg" alt="Noodles tossed with prawns and cherry tomatoes in a pan" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Chilli Prawn Noodles</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Tiger prawns, blistered tomato and bird's eye chilli over egg noodles.</p>
+              <span class="spice" aria-label="Spice level 4 of 4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;380</span><button class="dish__add" aria-label="Add Chilli Prawn Noodles to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="chinese" data-diet="non">
+            <div class="dish__media">
+              <img src="assets/img/dish-ramen.jpg" alt="A ramen bowl with noodles lifted on chopsticks and a soft egg" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Shoyu Ramen Bowl</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Twelve-hour chicken broth, soy tare, soft-set egg, bamboo shoots and nori.</p>
+              <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;330</span><button class="dish__add" aria-label="Add Shoyu Ramen Bowl to tray">+</button></div>
+            </div>
+          </article>
+
+          <!-- Burgers & grills -->
+          <article class="dish" data-cat="burgers" data-diet="non">
+            <div class="dish__media">
+              <img src="assets/img/dish-cheeseburger.jpg" alt="A classic cheeseburger with lettuce and melted cheddar" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Classic Cheeseburger</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Smashed patty, aged cheddar, house pickles and burger sauce in a potato bun.</p>
+              <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;240</span><button class="dish__add" aria-label="Add Classic Cheeseburger to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="burgers" data-diet="non">
+            <div class="dish__media">
+              <span class="dish__flag dish__flag--hot">Big one</span>
+              <img src="assets/img/dish-double-patty.jpg" alt="A double patty burger with cheese melting over the sides" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Double Patty Melt</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Two patties, double cheese, caramelised onion and mustard mayo. Bring an appetite.</p>
+              <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;330</span><button class="dish__add" aria-label="Add Double Patty Melt to tray">+</button></div>
+            </div>
+          </article>
+          <article class="dish" data-cat="burgers" data-diet="non">
+            <div class="dish__media">
+              <img src="assets/img/dish-club-sandwich.jpg" alt="A layered club sandwich with cheese, ham and salad" width="800" height="600" loading="lazy">
+            </div>
+            <div class="dish__body">
+              <div class="dish__row"><h4>Grilled Club Sandwich</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
+              <p class="dish__desc">Triple-decker on sourdough with grilled chicken, cheese, egg and crisp lettuce.</p>
+              <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
+              <div class="dish__foot"><span class="dish__price">&#8377;250</span><button class="dish__add" aria-label="Add Grilled Club Sandwich to tray">+</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      </div>
+
+      <p class="menu__empty" id="menuEmpty">Nothing in that kitchen right now. Try another tab.</p>
+      <p class="menu__note">All prices include taxes. Jain and no-onion-no-garlic versions available on request.</p>
+    </div>
+  </section>
+
+  <!-- ============ 5. gallery ============ -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="head head--center reveal">
+        <span class="eyebrow">The place</span>
+        <h2>Come see it <span class="underline-pop">for yourself</span></h2>
+        <p class="lead" style="margin-inline:auto">Tap any photo to open it larger. Tag us at
+          <strong>@foodiecafe</strong> and we might put your shot up here.</p>
+      </div>
+
+      <div class="gallery reveal-stag" id="gallery-grid">
+        <figure class="shot shot--wide" tabindex="0" role="button" aria-label="Open photo: the main service counter"><img src="assets/img/gallery-1.jpg" alt="The main service counter with pendant lights and bar stools" width="900" height="600" loading="lazy"><figcaption>The main counter</figcaption></figure>
+        <figure class="shot shot--tall" tabindex="0" role="button" aria-label="Open photo: a shared table mid-meal"><img src="assets/img/gallery-2.jpg" alt="Friends sharing plates of food across a busy table" width="900" height="1200" loading="lazy"><figcaption>Sharing is the point</figcaption></figure>
+        <figure class="shot" tabindex="0" role="button" aria-label="Open photo: a plated main course"><img src="assets/img/gallery-3.jpg" alt="A carefully plated main course with herbs and sauce" width="900" height="600" loading="lazy"><figcaption>Plated to order</figcaption></figure>
+        <figure class="shot" tabindex="0" role="button" aria-label="Open photo: the dining floor"><img src="assets/img/gallery-4.jpg" alt="The open dining floor with wooden tables and tall windows" width="900" height="600" loading="lazy"><figcaption>Room for 90</figcaption></figure>
+        <figure class="shot shot--tall" tabindex="0" role="button" aria-label="Open photo: a pasta spread from above"><img src="assets/img/gallery-5.jpg" alt="Overhead view of pasta plates and glasses on a table" width="900" height="1200" loading="lazy"><figcaption>Italian corner</figcaption></figure>
+        <figure class="shot" tabindex="0" role="button" aria-label="Open photo: latte art being poured"><img src="assets/img/gallery-6.jpg" alt="A barista pouring latte art into a white cup" width="900" height="600" loading="lazy"><figcaption>Coffee bar</figcaption></figure>
+        <figure class="shot" tabindex="0" role="button" aria-label="Open photo: the evening dining room"><img src="assets/img/gallery-7.jpg" alt="The dining room in the evening with warm low lighting" width="900" height="600" loading="lazy"><figcaption>After 8 PM</figcaption></figure>
+        <figure class="shot" tabindex="0" role="button" aria-label="Open photo: a table being served"><img src="assets/img/gallery-8.jpg" alt="Staff setting plates down on a laid table" width="900" height="600" loading="lazy"><figcaption>Service, not fuss</figcaption></figure>
+        <figure class="shot" tabindex="0" role="button" aria-label="Open photo: a colourful salad bowl"><img src="assets/img/gallery-9.jpg" alt="A colourful bowl of fresh vegetables and greens" width="900" height="600" loading="lazy"><figcaption>The salad station</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. visit ============ -->
+  <section class="section section--sunk" id="visit">
+    <div class="wrap">
+      <div class="head head--center reveal">
+        <span class="eyebrow">Visit us</span>
+        <h2>Book a table, or <span class="underline-pop">just walk in</span></h2>
+      </div>
+
+      <div class="visit">
+        <div class="info-card reveal">
+          <h3>Opening hours</h3>
+          <ul class="hours" id="hours">
+            <li data-day="1"><span>Monday</span><span>11:00 AM - 11:00 PM</span></li>
+            <li data-day="2"><span>Tuesday</span><span>11:00 AM - 11:00 PM</span></li>
+            <li data-day="3"><span>Wednesday</span><span>11:00 AM - 11:00 PM</span></li>
+            <li data-day="4"><span>Thursday</span><span>11:00 AM - 11:00 PM</span></li>
+            <li data-day="5"><span>Friday</span><span>11:00 AM - 12:30 AM</span></li>
+            <li data-day="6"><span>Saturday</span><span>10:00 AM - 12:30 AM</span></li>
+            <li data-day="0"><span>Sunday</span><span>10:00 AM - 11:30 PM</span></li>
+          </ul>
+
+          <ul class="contact-list">
+            <li>
+              <span class="ico" aria-hidden="true">&#128205;</span>
+              <span><b>Address</b>Shop 12, Lane 7, Koregaon Park, Pune 411001</span>
+            </li>
+            <li>
+              <span class="ico" aria-hidden="true">&#128222;</span>
+              <span><b>Phone</b><a href="tel:+919876543210">+91 98765 43210</a></span>
+            </li>
+            <li>
+              <span class="ico" aria-hidden="true">&#9993;</span>
+              <span><b>Email</b><a href="mailto:hello@foodiecafe.example">hello@foodiecafe.example</a></span>
+            </li>
+          </ul>
+
+          <div class="map">
+            <iframe
+              title="Map showing the Koregaon Park area of Pune"
+              src="https://www.google.com/maps?q=Koregaon%20Park%2C%20Pune&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="info-card reveal">
+          <h3>Reserve a table</h3>
+          <p class="lead" style="margin-top:10px;font-size:15px">
+            Tables are held for 15 minutes past the booking time. Groups over 8, please call us.
+          </p>
+
+          <form class="form" id="bookForm" novalidate style="margin-top:22px">
+            <div class="form__row">
+              <div class="field">
+                <label for="bName">Your name</label>
+                <input id="bName" name="name" type="text" autocomplete="name" placeholder="Priya Sharma" required>
+                <span class="err" data-err-for="bName"></span>
+              </div>
+              <div class="field">
+                <label for="bPhone">Phone</label>
+                <input id="bPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98765 43210" required>
+                <span class="err" data-err-for="bPhone"></span>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="bDate">Date</label>
+                <input id="bDate" name="date" type="date" required>
+                <span class="err" data-err-for="bDate"></span>
+              </div>
+              <div class="field">
+                <label for="bTime">Time</label>
+                <input id="bTime" name="time" type="time" value="19:30" required>
+                <span class="err" data-err-for="bTime"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="bGuests">Guests</label>
+              <select id="bGuests" name="guests" required>
+                <option value="1">1 guest</option>
+                <option value="2" selected>2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5">5 guests</option>
+                <option value="6">6 guests</option>
+                <option value="7">7 guests</option>
+                <option value="8">8 guests</option>
+              </select>
+              <span class="err" data-err-for="bGuests"></span>
+            </div>
+
+            <div class="field">
+              <label for="bNote">Anything we should know?</label>
+              <textarea id="bNote" name="note" placeholder="Birthday, high chair needed, Jain food, window seat..."></textarea>
+            </div>
+
+            <button class="btn btn--mint" type="submit" data-magnetic>
+              <span class="btn__ico" aria-hidden="true">&#128197;</span> Request the table
+            </button>
+
+            <p class="form__done" id="formDone" role="status">
+              <span aria-hidden="true">&#9989;</span>
+              <span id="formDoneText">Thanks! We will call to confirm.</span>
+            </p>
+
+            <p class="form__hint">
+              Demo form. Nothing is sent anywhere yet, the details are only logged in your
+              browser console. Wire it to your booking system before going live.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 7. footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__about">
+        <a class="logo" href="#top">
+          <span class="logo__mark" aria-hidden="true">&#127859;</span>
+          <span>Foodie<em>Cafe</em></span>
+        </a>
+        <p>Six kitchens, one counter, one bill. Feeding Pune since 2014.</p>
+        <div class="socials">
+          <a href="#" aria-label="FoodieCafe on Instagram">IG</a>
+          <a href="#" aria-label="FoodieCafe on Facebook">FB</a>
+          <a href="#" aria-label="FoodieCafe on X">X</a>
+          <a href="#" aria-label="FoodieCafe on YouTube">YT</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer__links">
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="#about">Why us</a></li>
+          <li><a href="#menu">Full menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Visit</h4>
+        <ul class="footer__links">
+          <li><a href="#visit">Book a table</a></li>
+          <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+          <li><a href="mailto:hello@foodiecafe.example">hello@foodiecafe.example</a></li>
+          <li><a href="#visit">Koregaon Park, Pune</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Get the weekly specials</h4>
+        <form class="news" id="newsForm" novalidate>
+          <label class="sr-only" for="newsEmail">Email address</label>
+          <input id="newsEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <button type="submit">Join</button>
+        </form>
+        <p class="news__msg" id="newsMsg" role="status"></p>
+      </div>
+    </div>
+
+    <div class="footer__bar">
+      <span>&copy; <span id="year">2026</span> FoodieCafe. A fictional restaurant, built as a demo.</span>
+      <span>Photography from Unsplash. Swap in your own before launch.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- dish detail modal -->
+<div class="dish-modal" id="dishModal" role="dialog" aria-modal="true" aria-labelledby="dmTitle" aria-hidden="true">
+  <div class="dish-modal__panel">
+    <button class="dish-modal__close" id="dmClose" aria-label="Close dish details">&times;</button>
+
+    <div class="dish-modal__media">
+      <figure class="dish-modal__hero">
+        <img id="dmHero" src="" alt="" width="900" height="675">
+      </figure>
+      <div class="dish-modal__thumbs" id="dmThumbs" role="tablist" aria-label="Photos of this dish"></div>
+    </div>
+
+    <div class="dish-modal__info">
+      <div class="dish-modal__top">
+        <span class="tag" id="dmCat"></span>
+        <span class="dish-modal__dietwrap"><span class="diet" id="dmDiet"></span><em id="dmDietText"></em></span>
+      </div>
+
+      <h3 id="dmTitle"></h3>
+      <p class="dish-modal__desc" id="dmDesc"></p>
+
+      <ul class="dish-modal__meta" id="dmMeta"></ul>
+
+      <div class="dish-modal__block">
+        <h4>What is in it</h4>
+        <div class="dish-modal__chips" id="dmIngredients"></div>
+      </div>
+
+      <div class="dish-modal__block">
+        <h4>Allergens</h4>
+        <p class="dish-modal__allergens" id="dmAllergens"></p>
+      </div>
+
+      <div class="dish-modal__buy">
+        <span class="dish-modal__price" id="dmPrice"></span>
+        <button class="btn btn--mint" id="dmAdd" type="button">
+          <span class="btn__ico" aria-hidden="true">&#43;</span> Add to tray
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox__close" id="lbClose" aria-label="Close photo viewer">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  <p class="lightbox__cap" id="lbCap"></p>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/Flip.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
