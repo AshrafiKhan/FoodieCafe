@@ -850,8 +850,13 @@
 <!-- dish detail modal -->
 <div class="dish-modal" id="dishModal" role="dialog" aria-modal="true" aria-labelledby="dmTitle" aria-hidden="true">
   <div class="dish-modal__panel">
+    <!-- outside the scroll area so it stays put while the content moves -->
     <button class="dish-modal__close" id="dmClose" aria-label="Close dish details">&times;</button>
 
+    <!-- data-lenis-prevent: Lenis calls preventDefault on wheel and touch across
+         the whole document, even while stopped, which otherwise makes this
+         region impossible to scroll on touch devices. -->
+    <div class="dish-modal__scroll" data-lenis-prevent>
     <div class="dish-modal__media">
       <figure class="dish-modal__hero">
         <img id="dmHero" src="" alt="" width="900" height="675">
@@ -887,6 +892,7 @@
         </button>
       </div>
     </div>
+    </div><!-- /.dish-modal__scroll -->
   </div>
 </div>
 

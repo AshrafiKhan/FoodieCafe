@@ -61,6 +61,11 @@ Three things degrade on purpose:
 
 `window.FoodieCafe` exposes the Lenis instance for debugging in the console.
 
+**Gotcha if you add another scrollable overlay:** Lenis calls `preventDefault()` on
+wheel and touch across the whole document, even while stopped, so a nested scrollable
+element silently refuses to scroll on touch devices. Put `data-lenis-prevent` on it,
+as `.dish-modal__scroll` does.
+
 ## What to change before this goes live
 
 Everything below is placeholder content for a business that does not exist.
