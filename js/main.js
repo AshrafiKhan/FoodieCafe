@@ -186,6 +186,7 @@
   /* ------------------------------------------------------------- 5. Drawer */
   var burger = $('#burger');
   var drawer = $('#drawer');
+  var drawerClose = $('#drawerClose');
   var drawerOpen = false;
   var lastFocus = null;
 
@@ -200,8 +201,8 @@
     burger.setAttribute('aria-label', 'Close menu');
     document.body.classList.add('is-locked');
     if (lenis) lenis.stop();
-    var first = $('a', drawer);
-    if (first) first.focus();
+    /* land focus on the close button, the first thing in the drawer */
+    (drawerClose || $('a', drawer)).focus();
   }
 
   function closeDrawer() {
@@ -218,13 +219,15 @@
   }
 
   if (burger) burger.addEventListener('click', function () { drawerOpen ? closeDrawer() : openDrawer(); });
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
 
-  /* Keep tab focus inside the drawer while it is open. */
+  /* Keep tab focus inside the drawer while it is open. The close button and
+     links all live inside the drawer, so the query already covers them; the
+     burger is hidden while open, so it is no longer part of the trap. */
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { closeDrawer(); closeLightbox(); }
     if (e.key !== 'Tab' || !drawerOpen) return;
     var items = $$('a, button', drawer).filter(function (el) { return el.offsetParent !== null; });
-    items.push(burger);
     if (!items.length) return;
     var first = items[0], last = items[items.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -486,10 +489,11 @@
   /* add-to-tray feedback */
   $$('.dish__add').forEach(function (btn) {
     btn.addEventListener('click', function () {
+      /* class only - the plus and tick are both in the markup as SVGs, so the
+         button never rewrites its own contents */
       btn.classList.add('is-added');
-      btn.textContent = '✓';
       if (animate) gsap.fromTo(btn, { scale: .6 }, { scale: 1, duration: .5, ease: 'back.out(3)' });
-      setTimeout(function () { btn.classList.remove('is-added'); btn.textContent = '+'; }, 1400);
+      setTimeout(function () { btn.classList.remove('is-added'); }, 1400);
     });
   });
 
@@ -652,10 +656,13 @@
 
     $('#dmAdd').addEventListener('click', function () {
       var btn = $('#dmAdd');
-      btn.innerHTML = '<span class="btn__ico" aria-hidden="true">✓</span> Added';
+      var label = $('#dmAddLabel');
+      btn.classList.add('is-added');
+      label.textContent = 'Added';
       if (animate) gsap.fromTo(btn, { scale: .92 }, { scale: 1, duration: .45, ease: 'back.out(3)' });
       setTimeout(function () {
-        btn.innerHTML = '<span class="btn__ico" aria-hidden="true">+</span> Add to tray';
+        btn.classList.remove('is-added');
+        label.textContent = 'Add to tray';
       }, 1500);
     });
 

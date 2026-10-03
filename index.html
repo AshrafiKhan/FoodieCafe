@@ -75,6 +75,9 @@
 </header>
 
 <div class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawer__close" id="drawerClose" type="button" aria-label="Close menu">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>
+  </button>
   <div>
     <ul class="drawer__list">
       <li><a href="#offers">Offers</a></li>
@@ -346,7 +349,7 @@
               <div class="dish__row"><h4>Punjabi Samosa</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Two hand-folded samosas, potato and pea filling, with tamarind and mint chutney.</p>
               <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;80</span><button class="dish__add" aria-label="Add Punjabi Samosa to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;80</span><button class="dish__add" aria-label="Add Punjabi Samosa to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="indian" data-diet="veg">
@@ -358,7 +361,7 @@
               <div class="dish__row"><h4>Deluxe Veg Thali</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Two curries, dal, rice, four rotis, papad, salad and a sweet. Unlimited refills on dal.</p>
               <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;260</span><button class="dish__add" aria-label="Add Deluxe Veg Thali to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;260</span><button class="dish__add" aria-label="Add Deluxe Veg Thali to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -371,7 +374,7 @@
               <div class="dish__row"><h4>Veg Hakka Noodles</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Wok-tossed noodles with julienned cabbage, carrot and spring onion. High flame, proper char.</p>
               <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;210</span><button class="dish__add" aria-label="Add Veg Hakka Noodles to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;210</span><button class="dish__add" aria-label="Add Veg Hakka Noodles to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="chinese" data-diet="veg">
@@ -382,7 +385,7 @@
               <div class="dish__row"><h4>Asian Chopped Salad</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Shredded cabbage, peanut, sesame and a ginger-soy dressing. Crunchy and cold.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;190</span><button class="dish__add" aria-label="Add Asian Chopped Salad to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;190</span><button class="dish__add" aria-label="Add Asian Chopped Salad to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -396,7 +399,7 @@
               <div class="dish__row"><h4>Margherita Pizza</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">San Marzano base, fior di latte and basil on a 48-hour cold-proved crust.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;290</span><button class="dish__add" aria-label="Add Margherita Pizza to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;290</span><button class="dish__add" aria-label="Add Margherita Pizza to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="italian" data-diet="veg">
@@ -408,7 +411,7 @@
               <div class="dish__row"><h4>Ricotta &amp; Rocket</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">White base, whipped ricotta, rocket, lemon zest and a crack of black pepper.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;360</span><button class="dish__add" aria-label="Add Ricotta and Rocket pizza to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;360</span><button class="dish__add" aria-label="Add Ricotta and Rocket pizza to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="italian" data-diet="veg">
@@ -419,7 +422,7 @@
               <div class="dish__row"><h4>Penne Arrabbiata</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Slow tomato sauce, garlic and dried chilli. Finished with parmesan and parsley.</p>
               <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;280</span><button class="dish__add" aria-label="Add Penne Arrabbiata to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;280</span><button class="dish__add" aria-label="Add Penne Arrabbiata to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="italian" data-diet="veg">
@@ -430,7 +433,7 @@
               <div class="dish__row"><h4>Pesto Farfalle</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Bow-tie pasta in basil and pine nut pesto, blistered cherry tomatoes on top.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;300</span><button class="dish__add" aria-label="Add Pesto Farfalle to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;300</span><button class="dish__add" aria-label="Add Pesto Farfalle to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -443,7 +446,7 @@
               <div class="dish__row"><h4>Loaded Cheese Fries</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Skin-on fries under a cheese sauce blanket, jalapeno and spring onion.</p>
               <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;180</span><button class="dish__add" aria-label="Add Loaded Cheese Fries to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;180</span><button class="dish__add" aria-label="Add Loaded Cheese Fries to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -457,7 +460,7 @@
               <div class="dish__row"><h4>Molten Brownie</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Warm 70% chocolate brownie with a soft centre and a scoop of vanilla.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;190</span><button class="dish__add" aria-label="Add Molten Brownie to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;190</span><button class="dish__add" aria-label="Add Molten Brownie to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="desserts" data-diet="veg">
@@ -468,7 +471,7 @@
               <div class="dish__row"><h4>Raspberry Cream Cake</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Three sponge layers, vanilla cream and fresh raspberries. Cut to order.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;220</span><button class="dish__add" aria-label="Add Raspberry Cream Cake to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;220</span><button class="dish__add" aria-label="Add Raspberry Cream Cake to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="desserts" data-diet="veg">
@@ -479,7 +482,7 @@
               <div class="dish__row"><h4>Sprinkle Donut Stack</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Three glazed donuts, chocolate drizzle and rainbow sprinkles. Made every morning.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;150</span><button class="dish__add" aria-label="Add Sprinkle Donut Stack to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;150</span><button class="dish__add" aria-label="Add Sprinkle Donut Stack to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="desserts" data-diet="veg">
@@ -490,7 +493,7 @@
               <div class="dish__row"><h4>Salted Caramel Sundae</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Vanilla bean ice cream, warm salted caramel, toasted almond and a wafer roll.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;170</span><button class="dish__add" aria-label="Add Salted Caramel Sundae to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;170</span><button class="dish__add" aria-label="Add Salted Caramel Sundae to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -503,7 +506,7 @@
               <div class="dish__row"><h4>Cold Brew Coffee</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Steeped 18 hours, poured over a single large cube. Low acid, high kick.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;160</span><button class="dish__add" aria-label="Add Cold Brew Coffee to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;160</span><button class="dish__add" aria-label="Add Cold Brew Coffee to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="drinks" data-diet="veg">
@@ -515,7 +518,7 @@
               <div class="dish__row"><h4>Cookie Thick Shake</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Blended cookies and cream, whipped top, chocolate collar on the glass.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;200</span><button class="dish__add" aria-label="Add Cookie Thick Shake to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;200</span><button class="dish__add" aria-label="Add Cookie Thick Shake to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="drinks" data-diet="veg">
@@ -526,7 +529,7 @@
               <div class="dish__row"><h4>Strawberry Mojito</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Muddled strawberry, lime and mint topped with soda. Zero alcohol, all fizz.</p>
               <span class="spice" aria-label="No spice"><i></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;180</span><button class="dish__add" aria-label="Add Strawberry Mojito to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;180</span><button class="dish__add" aria-label="Add Strawberry Mojito to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="drinks" data-diet="veg">
@@ -538,7 +541,7 @@
               <div class="dish__row"><h4>Kadak Masala Chai</h4><span class="diet" title="Vegetarian"></span></div>
               <p class="dish__desc">Boiled strong with ginger, cardamom and clove. Served with two butter biscuits.</p>
               <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;60</span><button class="dish__add" aria-label="Add Kadak Masala Chai to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;60</span><button class="dish__add" aria-label="Add Kadak Masala Chai to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
         </div>
@@ -563,7 +566,7 @@
               <div class="dish__row"><h4>Butter Chicken</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Tandoori chicken simmered in tomato, cashew and cream. Served with two butter naan.</p>
               <span class="spice" aria-label="Spice level 2 of 4"><i class="on"></i><i class="on"></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;340</span><button class="dish__add" aria-label="Add Butter Chicken to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;340</span><button class="dish__add" aria-label="Add Butter Chicken to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="indian" data-diet="non">
@@ -574,7 +577,7 @@
               <div class="dish__row"><h4>Hyderabadi Biryani</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Long grain rice dum-cooked with marinated chicken, saffron and fried onion. Raita on the side.</p>
               <span class="spice" aria-label="Spice level 3 of 4"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;320</span><button class="dish__add" aria-label="Add Hyderabadi Biryani to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;320</span><button class="dish__add" aria-label="Add Hyderabadi Biryani to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -588,7 +591,7 @@
               <div class="dish__row"><h4>Chilli Prawn Noodles</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Tiger prawns, blistered tomato and bird's eye chilli over egg noodles.</p>
               <span class="spice" aria-label="Spice level 4 of 4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;380</span><button class="dish__add" aria-label="Add Chilli Prawn Noodles to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;380</span><button class="dish__add" aria-label="Add Chilli Prawn Noodles to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="chinese" data-diet="non">
@@ -599,7 +602,7 @@
               <div class="dish__row"><h4>Shoyu Ramen Bowl</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Twelve-hour chicken broth, soy tare, soft-set egg, bamboo shoots and nori.</p>
               <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;330</span><button class="dish__add" aria-label="Add Shoyu Ramen Bowl to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;330</span><button class="dish__add" aria-label="Add Shoyu Ramen Bowl to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
 
@@ -612,7 +615,7 @@
               <div class="dish__row"><h4>Classic Cheeseburger</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Smashed patty, aged cheddar, house pickles and burger sauce in a potato bun.</p>
               <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;240</span><button class="dish__add" aria-label="Add Classic Cheeseburger to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;240</span><button class="dish__add" aria-label="Add Classic Cheeseburger to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="burgers" data-diet="non">
@@ -624,7 +627,7 @@
               <div class="dish__row"><h4>Double Patty Melt</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Two patties, double cheese, caramelised onion and mustard mayo. Bring an appetite.</p>
               <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;330</span><button class="dish__add" aria-label="Add Double Patty Melt to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;330</span><button class="dish__add" aria-label="Add Double Patty Melt to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
           <article class="dish" data-cat="burgers" data-diet="non">
@@ -635,7 +638,7 @@
               <div class="dish__row"><h4>Grilled Club Sandwich</h4><span class="diet diet--non" title="Non-vegetarian"></span></div>
               <p class="dish__desc">Triple-decker on sourdough with grilled chicken, cheese, egg and crisp lettuce.</p>
               <span class="spice" aria-label="Spice level 1 of 4"><i class="on"></i><i></i><i></i><i></i></span>
-              <div class="dish__foot"><span class="dish__price">&#8377;250</span><button class="dish__add" aria-label="Add Grilled Club Sandwich to tray">+</button></div>
+              <div class="dish__foot"><span class="dish__price">&#8377;250</span><button class="dish__add" aria-label="Add Grilled Club Sandwich to tray"><svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg></button></div>
             </div>
           </article>
         </div>
@@ -851,7 +854,7 @@
 <div class="dish-modal" id="dishModal" role="dialog" aria-modal="true" aria-labelledby="dmTitle" aria-hidden="true">
   <div class="dish-modal__panel">
     <!-- outside the scroll area so it stays put while the content moves -->
-    <button class="dish-modal__close" id="dmClose" aria-label="Close dish details">&times;</button>
+    <button class="dish-modal__close" id="dmClose" aria-label="Close dish details"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
 
     <!-- data-lenis-prevent: Lenis calls preventDefault on wheel and touch across
          the whole document, even while stopped, which otherwise makes this
@@ -888,7 +891,8 @@
       <div class="dish-modal__buy">
         <span class="dish-modal__price" id="dmPrice"></span>
         <button class="btn btn--mint" id="dmAdd" type="button">
-          <span class="btn__ico" aria-hidden="true">&#43;</span> Add to tray
+          <svg class="icon icon--plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="icon icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.4l5.2 5.2L19.5 7"/></svg>
+          <span id="dmAddLabel">Add to tray</span>
         </button>
       </div>
     </div>
@@ -898,14 +902,14 @@
 
 <!-- lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lightbox__close" id="lbClose" aria-label="Close photo viewer">&times;</button>
-  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <button class="lightbox__close" id="lbClose" aria-label="Close photo viewer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
   <img id="lbImg" src="" alt="">
-  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
   <p class="lightbox__cap" id="lbCap"></p>
 </div>
 
-<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+<button class="to-top" id="toTop" aria-label="Back to top"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19.5V5M5.2 11.8L12 5l6.8 6.8"/></svg></button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js" defer></script>
