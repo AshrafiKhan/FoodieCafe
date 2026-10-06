@@ -72,13 +72,13 @@ Everything below is placeholder content for a business that does not exist.
 
 | What | Where |
 |---|---|
-| Name, address, phone, email | `index.html` - search `Example Plaza`, `XXXXX XXXXX`, `foodiecafe.example` |
+| Name, address, phone, email | `index.html` - search `Example Plaza`, `XXXXX XXXXX`, `foodiecafe.example`, and the `tel:+91XXXXXXXXXX` link on the booking form's "Call us now" button |
 | Map location | `index.html` - swap the `.map--placeholder` block in Visit for your own embed |
 | Menu items and prices | `index.html` - the 24 `<article class="dish">` blocks |
 | Dish detail copy, calories, allergens | `js/main.js` - the `DISH_INFO` map, keyed by image slug |
 | Offers and pricing | `index.html` - the three `<article class="offer">` blocks |
 | Happy hour window | `js/main.js` - `HH_START` / `HH_END`, currently 16:00-19:00 |
-| Opening hours | `index.html` - the `<ul class="hours">` list |
+| Opening hours | `index.html` - the `<ul class="hours">` list, and `BOOK_HOURS` in `js/main.js` so booking times match |
 | Social links | `index.html` - the `.socials` block, currently `href="#"` |
 | Brand colours | `css/styles.css` - the `:root` block at the top |
 | Photos | `assets/img/` - keep the filenames and the markup needs no edits |

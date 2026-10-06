@@ -213,6 +213,10 @@ p { margin: 0; }
 }
 .btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--line); }
 .btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--line); }
+.btn[hidden] { display: none; }
+.btn:disabled,
+.btn:disabled:hover,
+.btn:disabled:active { opacity: .5; cursor: not-allowed; transform: none; box-shadow: var(--shadow); }
 .btn--ghost { --btn-bg: var(--bg); --btn-fg: var(--ink); }
 .btn--yellow { --btn-bg: var(--yellow); --btn-fg: var(--ink); }
 .btn--mint { --btn-bg: var(--mint); --btn-fg: #06251F; }
@@ -1484,6 +1488,7 @@ html.js-anim .preloader {
   text-transform: uppercase;
   color: var(--muted);
 }
+.field__opt { font-weight: 500; letter-spacing: .02em; text-transform: none; color: var(--faint); }
 .field input,
 .field select,
 .field textarea {
@@ -1517,6 +1522,8 @@ html.js-anim .preloader {
 }
 .form__done.is-on { display: flex; }
 .form__hint { font-size: 13px; color: var(--faint); }
+.form__block { font-size: 13px; font-weight: 700; color: var(--red-deep); }
+.form__block:empty { display: none; }
 
 /* ---------- 14. Footer ---------- */
 .footer { background: #141414; color: #FFF6EC; padding-block: clamp(54px, 7vw, 84px) 30px; }

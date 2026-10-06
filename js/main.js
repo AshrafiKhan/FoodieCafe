@@ -260,6 +260,7 @@
       var mx = gsap.quickTo(el, 'x', { duration: .5, ease: 'elastic.out(1, .4)' });
       var my = gsap.quickTo(el, 'y', { duration: .5, ease: 'elastic.out(1, .4)' });
       el.addEventListener('mousemove', function (e) {
+        if (el.disabled) return;
         var r = el.getBoundingClientRect();
         mx((e.clientX - (r.left + r.width / 2)) * 0.32);
         my((e.clientY - (r.top + r.height / 2)) * 0.42);
@@ -748,64 +749,189 @@
   var form = $('#bookForm');
   var done = $('#formDone');
 
+  /* Booking hours per getDay(), as [open, close] in minutes from midnight.
+     Mirrors the #hours list above; a close past midnight runs over 1440. */
+  var BOOK_HOURS = {
+    0: [600, 1410],                                         /* Sun 10:00 AM - 11:30 PM */
+    1: [660, 1380], 2: [660, 1380], 3: [660, 1380], 4: [660, 1380], /* Mon-Thu 11:00 AM - 11:00 PM */
+    5: [660, 1470],                                         /* Fri 11:00 AM - 12:30 AM */
+    6: [600, 1470]                                          /* Sat 10:00 AM - 12:30 AM */
+  };
+  var LAST_SEATING = 60;  /* last booking this many minutes before closing */
+  var LEAD_MINS    = 30;  /* same-day bookings need this much notice */
+  var AHEAD_DAYS   = 60;  /* how far ahead the calendar opens */
+  var MAX_GUESTS   = 8;   /* bigger groups are asked to call */
+  var NOTE_MAX     = 300;
+
+  function isoDate(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function midnight(offsetDays) {
+    var d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + (offsetDays || 0));
+    return d;
+  }
+  function nowMins() { var n = new Date(); return n.getHours() * 60 + n.getMinutes(); }
+  function toMins(hhmm) { var p = hhmm.split(':'); return Number(p[0]) * 60 + Number(p[1]); }
+  function fmtTime(m) {
+    var h = Math.floor(m / 60) % 24, ap = h < 12 ? 'AM' : 'PM';
+    return (h % 12 || 12) + ':' + String(m % 60).padStart(2, '0') + ' ' + ap;
+  }
+  function lastSeating(day) { return BOOK_HOURS[day][1] - LAST_SEATING; }
+
+  /* Digits only, at most 10. A +91 or 0 prefix, typed or pasted, gets room
+     for its extra digits and is dropped once the full number is in. */
+  function cleanPhone(raw) {
+    var d = raw.replace(/\D/g, '');
+    var room = d.indexOf('91') === 0 ? 12 : d.charAt(0) === '0' ? 11 : 10;
+    d = d.slice(0, room);
+    if (d.length === 12) return d.slice(2);
+    if (d.length === 11 && d.charAt(0) === '0') return d.slice(1);
+    return d;   /* 11 digits starting 91 waits for its 12th */
+  }
+  function cleanName(raw) { return raw.trim().replace(/\s+/g, ' '); }
+
+  /* One rule per field id. Each returns an error message, or '' when fine. */
+  var rules = {
+    bName: function (el) {
+      var v = cleanName(el.value);
+      if (!v) return 'Please tell us your name.';
+      if (!/^[\p{L}\p{M}][\p{L}\p{M} .'-]*$/u.test(v)) return 'Use letters only. Spaces, dots, hyphens and apostrophes are fine.';
+      if ((v.match(/\p{L}/gu) || []).length < 2) return 'Name is too short.';
+      if (v.length > 50) return 'Keep the name under 50 characters.';
+      return '';
+    },
+    bPhone: function (el) {
+      var v = el.value;
+      if (!v) return 'Please enter your mobile number.';
+      if (!/^\d+$/.test(v)) return 'Use digits only.';
+      if (v.length !== 10) return 'Mobile number must be exactly 10 digits (' + v.length + ' entered).';
+      if (!/^[6-9]/.test(v)) return 'Indian mobile numbers start with 6, 7, 8 or 9.';
+      if (/^(\d)\1{9}$/.test(v)) return 'That does not look like a real number.';
+      return '';
+    },
+    bDate: function (el) {
+      if (!el.value) return 'Pick a date.';
+      var picked = new Date(el.value + 'T00:00:00');
+      if (isNaN(picked.getTime())) return 'Pick a valid date.';
+      if (picked < midnight()) return 'That date has already passed.';
+      if (picked > midnight(AHEAD_DAYS)) return 'We take bookings up to ' + AHEAD_DAYS + ' days ahead.';
+      return '';
+    },
+    bTime: function (el) {
+      if (!el.value) return 'Pick a time.';
+      var picked = new Date($('#bDate').value + 'T00:00:00');
+      if (isNaN(picked.getTime())) return '';   /* the date rule reports this */
+      var day = picked.getDay(), open = BOOK_HOURS[day][0], last = lastSeating(day);
+      var t = toMins(el.value);
+      if (t < open || t > last) return 'Bookings that day run from ' + fmtTime(open) + ' to ' + fmtTime(last) + '.';
+      if (picked.getTime() === midnight().getTime()) {
+        var earliest = nowMins() + LEAD_MINS;
+        if (earliest > last) return 'Bookings for today are closed. Please pick another date.';
+        if (t < earliest) return 'For today, pick a time after ' + fmtTime(earliest) + '.';
+      }
+      return '';
+    },
+    bGuests: function (el) {
+      var n = Number(el.value);
+      if (el.value === 'more' || n > MAX_GUESTS) return 'For more than ' + MAX_GUESTS + ' guests, please call us to book.';
+      if (!Number.isInteger(n) || n < 1) return 'Pick the number of guests.';
+      return '';
+    },
+    bNote: function (el) {
+      return el.value.trim().length > NOTE_MAX ? 'Keep the note under ' + NOTE_MAX + ' characters.' : '';
+    }
+  };
+
   function setError(field, msg) {
     var wrap = field.closest('.field');
     var slot = wrap ? $('.err', wrap) : null;
     if (wrap) wrap.setAttribute('data-invalid', msg ? 'true' : 'false');
+    field.setAttribute('aria-invalid', msg ? 'true' : 'false');
     if (slot) slot.textContent = msg || '';
+    syncSubmit();
     return !msg;
   }
 
+  /* The submit button stays off while any field is showing an error. A group
+     too big to book online swaps it for a call button. */
+  function syncSubmit() {
+    var btn = $('#bSubmit'), call = $('#bCall'), note = $('#formBlock');
+    if (!btn) return;
+    var bigGroup = $('#bGuests').value === 'more';
+    var blocked = !bigGroup && !!$('.field[data-invalid="true"]', form);
+    if (blocked && !btn.disabled && animate) gsap.to(btn, { x: 0, y: 0, duration: .3 });
+    btn.hidden = bigGroup;
+    btn.disabled = blocked || bigGroup;
+    if (call) call.hidden = !bigGroup;
+    if (bigGroup) done.classList.remove('is-on');
+    if (note) note.textContent = blocked ? 'Fix the highlighted fields to request your table.' : '';
+  }
+
+  function check(el) { return setError(el, rules[el.id](el)); }
+  function checked(el) { var w = el.closest('.field'); return w && w.hasAttribute('data-invalid'); }
+
   function validate() {
     var ok = true;
-    var name = $('#bName'), phone = $('#bPhone'), date = $('#bDate'), time = $('#bTime');
-
-    ok = setError(name, name.value.trim().length < 2 ? 'Please tell us your name.' : '') && ok;
-
-    var digits = phone.value.replace(/\D/g, '');
-    ok = setError(phone, digits.length < 10 ? 'Enter a 10-digit phone number.' : '') && ok;
-
-    if (!date.value) {
-      ok = setError(date, 'Pick a date.') && ok;
-    } else {
-      var picked = new Date(date.value + 'T00:00:00');
-      var midnight = new Date(); midnight.setHours(0, 0, 0, 0);
-      ok = setError(date, picked < midnight ? 'That date has already passed.' : '') && ok;
-    }
-
-    ok = setError(time, !time.value ? 'Pick a time.' : '') && ok;
+    Object.keys(rules).forEach(function (id) { ok = check($('#' + id)) && ok; });
     return ok;
   }
 
-  if (form) {
-    /* today is the earliest bookable date */
-    var dEl = $('#bDate');
-    var t = new Date();
-    var iso = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
-    dEl.min = iso;
-    if (!dEl.value) dEl.value = iso;
+  function clearErrors() {
+    $$('.field', form).forEach(function (w) { w.removeAttribute('data-invalid'); });
+    $$('[aria-invalid]', form).forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    $$('.err', form).forEach(function (s) { s.textContent = ''; });
+    syncSubmit();
+  }
 
-    $$('input, select, textarea', form).forEach(function (el) {
-      el.addEventListener('input', function () {
-        var wrap = el.closest('.field');
-        if (wrap && wrap.getAttribute('data-invalid') === 'true') validate();
-      });
+  if (form) {
+    var dEl = $('#bDate'), tEl = $('#bTime'), pEl = $('#bPhone');
+
+    /* Earliest bookable date is today, or tomorrow once today's last slot is gone. */
+    function setDateLimits() {
+      dEl.min = isoDate(midnight());
+      dEl.max = isoDate(midnight(AHEAD_DAYS));
+      var todayOpen = nowMins() + LEAD_MINS <= lastSeating(new Date().getDay());
+      dEl.value = isoDate(midnight(todayOpen ? 0 : 1));
+      /* Once the 7:30 PM default has passed, offer the next half-hour slot instead. */
+      if (rules.bTime(tEl)) {
+        var m = Math.ceil((nowMins() + LEAD_MINS) / 30) * 30;
+        tEl.value = String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+      }
+    }
+    setDateLimits();
+    syncSubmit();   /* a browser can restore "More than 8" on back/forward */
+
+    pEl.addEventListener('input', function () {
+      var clean = cleanPhone(pEl.value);
+      if (clean !== pEl.value) pEl.value = clean;
     });
+
+    /* Check a field once the visitor leaves it, then live while it is wrong. */
+    Object.keys(rules).forEach(function (id) {
+      var el = $('#' + id);
+      el.addEventListener('input', function () { el.dataset.touched = '1'; if (checked(el)) check(el); });
+      el.addEventListener('change', function () { el.dataset.touched = '1'; check(el); });
+      el.addEventListener('blur', function () { if (el.dataset.touched) check(el); });
+    });
+
+    /* Valid times depend on the day picked, so re-check time when the date moves. */
+    dEl.addEventListener('change', function () { if (checked(tEl)) check(tEl); });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!validate()) {
-        var bad = $('.field[data-invalid="true"] input, .field[data-invalid="true"] select', form);
+        done.classList.remove('is-on');   /* an earlier booking's thanks no longer applies */
+        var bad = $('.field[data-invalid="true"] input, .field[data-invalid="true"] select, .field[data-invalid="true"] textarea', form);
         if (bad) bad.focus();
         if (animate) gsap.fromTo(form, { x: -8 }, { x: 0, duration: .5, ease: 'elastic.out(1, .35)' });
         return;
       }
 
       var payload = {
-        name:   $('#bName').value.trim(),
-        phone:  $('#bPhone').value.trim(),
-        date:   $('#bDate').value,
-        time:   $('#bTime').value,
+        name:   cleanName($('#bName').value),
+        phone:  pEl.value,
+        date:   dEl.value,
+        time:   tEl.value,
         guests: $('#bGuests').value,
         note:   $('#bNote').value.trim()
       };
@@ -814,11 +940,13 @@
 
       $('#formDoneText').textContent =
         'Thanks ' + payload.name.split(' ')[0] + '! Table for ' + payload.guests +
-        ' on ' + payload.date + ' at ' + payload.time + '. We will call to confirm.';
+        ' on ' + payload.date + ' at ' + fmtTime(toMins(payload.time)) + '. We will call to confirm.';
       done.classList.add('is-on');
       if (animate) gsap.fromTo(done, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: 'power3.out' });
       form.reset();
-      dEl.value = iso;
+      $$('[data-touched]', form).forEach(function (el) { delete el.dataset.touched; });
+      clearErrors();
+      setDateLimits();
     });
   }
 
