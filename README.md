@@ -72,7 +72,7 @@ Everything below is placeholder content for a business that does not exist.
 
 | What | Where |
 |---|---|
-| Name, address, phone, email | `index.html` - search `Example Plaza`, `XXXXX XXXXX`, `foodiecafe.example`, and the `tel:+91XXXXXXXXXX` link on the booking form's "Call us now" button |
+| Name, address, phone, email | `index.html` - search `Example Plaza`, `Your City`, `XXXXX XXXXX`, `foodiecafe.example`, and the `tel:+91XXXXXXXXXX` link on the booking form's "Call us now" button |
 | Map location | `index.html` - swap the `.map--placeholder` block in Visit for your own embed |
 | Menu items and prices | `index.html` - the 24 `<article class="dish">` blocks |
 | Dish detail copy, calories, allergens | `js/main.js` - the `DISH_INFO` map, keyed by image slug |
