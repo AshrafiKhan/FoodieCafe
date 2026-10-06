@@ -1564,11 +1564,9 @@ html.js-anim .preloader {
   display: grid;
   place-items: center;
   border: 2px solid rgba(255, 246, 236, .3);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: .02em;
   transition: transform .2s var(--ease), background .2s, color .2s;
 }
+.socials .icon { width: 18px; height: 18px; }
 .socials a:hover { background: var(--yellow); color: #141414; transform: translateY(-3px); padding-left: 0; }
 
 .news { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
@@ -1603,6 +1601,22 @@ html.js-anim .preloader {
   font-size: 13.5px;
   border-top: 1px solid rgba(255, 246, 236, .18);
   color: rgba(255, 246, 236, .6);
+}
+.footer__credit { flex-basis: 100%; text-align: center; }
+.footer__credit a {
+  color: var(--yellow);
+  font-size: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.footer__credit a:hover,
+.footer__credit a:focus-visible { padding-left: 0; text-decoration-thickness: 2px; }
+/* On narrow screens the centred credit reaches the corner the fixed
+   back-to-top button sits in (20px + 52px), so lift it clear. */
+@media (max-width: 767px) {
+  .footer { padding-bottom: 96px; }
 }
 
 .to-top {
