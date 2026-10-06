@@ -730,32 +730,32 @@
             <div class="form__row">
               <div class="field">
                 <label for="bName">Your name</label>
-                <input id="bName" name="name" type="text" autocomplete="name" placeholder="Priya Sharma" required>
-                <span class="err" data-err-for="bName"></span>
+                <input id="bName" name="name" type="text" autocomplete="name" placeholder="Priya Sharma" maxlength="50" required aria-describedby="bNameErr">
+                <span class="err" id="bNameErr" data-err-for="bName"></span>
               </div>
               <div class="field">
-                <label for="bPhone">Phone</label>
-                <input id="bPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="XXXXX XXXXX" required>
-                <span class="err" data-err-for="bPhone"></span>
+                <label for="bPhone">Mobile number</label>
+                <input id="bPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" required aria-describedby="bPhoneErr">
+                <span class="err" id="bPhoneErr" data-err-for="bPhone"></span>
               </div>
             </div>
 
             <div class="form__row">
               <div class="field">
                 <label for="bDate">Date</label>
-                <input id="bDate" name="date" type="date" required>
-                <span class="err" data-err-for="bDate"></span>
+                <input id="bDate" name="date" type="date" required aria-describedby="bDateErr">
+                <span class="err" id="bDateErr" data-err-for="bDate"></span>
               </div>
               <div class="field">
                 <label for="bTime">Time</label>
-                <input id="bTime" name="time" type="time" value="19:30" required>
-                <span class="err" data-err-for="bTime"></span>
+                <input id="bTime" name="time" type="time" value="19:30" required aria-describedby="bTimeErr">
+                <span class="err" id="bTimeErr" data-err-for="bTime"></span>
               </div>
             </div>
 
             <div class="field">
               <label for="bGuests">Guests</label>
-              <select id="bGuests" name="guests" required>
+              <select id="bGuests" name="guests" required aria-describedby="bGuestsErr">
                 <option value="1">1 guest</option>
                 <option value="2" selected>2 guests</option>
                 <option value="3">3 guests</option>
@@ -764,18 +764,25 @@
                 <option value="6">6 guests</option>
                 <option value="7">7 guests</option>
                 <option value="8">8 guests</option>
+                <option value="more">More than 8 guests</option>
               </select>
-              <span class="err" data-err-for="bGuests"></span>
+              <span class="err" id="bGuestsErr" data-err-for="bGuests"></span>
             </div>
 
             <div class="field">
-              <label for="bNote">Anything we should know?</label>
-              <textarea id="bNote" name="note" placeholder="Birthday, high chair needed, Jain food, window seat..."></textarea>
+              <label for="bNote">Anything we should know? <span class="field__opt">(optional)</span></label>
+              <textarea id="bNote" name="note" maxlength="300" placeholder="Birthday, high chair needed, Jain food, window seat..." aria-describedby="bNoteErr"></textarea>
+              <span class="err" id="bNoteErr" data-err-for="bNote"></span>
             </div>
 
-            <button class="btn btn--mint" type="submit" data-magnetic>
+            <button class="btn btn--mint" id="bSubmit" type="submit" data-magnetic aria-describedby="formBlock">
               <span class="btn__ico" aria-hidden="true">&#128197;</span> Request the table
             </button>
+            <!-- Shown instead of the submit button when "More than 8 guests" is picked. -->
+            <a class="btn btn--mint" id="bCall" href="tel:+91XXXXXXXXXX" data-magnetic hidden>
+              <span class="btn__ico" aria-hidden="true">&#128222;</span> Call us now
+            </a>
+            <p class="form__block" id="formBlock" role="status"></p>
 
             <p class="form__done" id="formDone" role="status">
               <span aria-hidden="true">&#9989;</span>
